@@ -33,8 +33,10 @@ public class Upload {
             Path destino = Paths.get("C:/temp/uploads/" + nome);
             Files.copy(origem, destino, StandardCopyOption.REPLACE_EXISTING);
             context.addMessage(null, new FacesMessage(FacesMessage.FACES_MESSAGES, "Sucesso\nUpload feito!"));
+            System.out.println("Sucesso\nUpload feito!");
         } catch (IOException erro) {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao tentar realizar upload do arquivo!", "" + erro));
+            System.out.println("Erro ao tentar realizar upload do arquivo!" + erro);
             erro.printStackTrace();
         }
     }
